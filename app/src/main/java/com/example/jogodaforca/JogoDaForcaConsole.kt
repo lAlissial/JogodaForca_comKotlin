@@ -1,5 +1,7 @@
 package com.example.jogodaforca
 
+import kotlin.system.exitProcess
+
 fun main(args: Array<String>) {
     var dicionario_com_palavras = mutableMapOf("OBJETO" to "é uma instância da classe", "BOLSA" to "guarda objetos pessoais","COLA" to "gruda as coisas","SALA" to "local para ver TV")
     var jogo: JogoDaForca? = null
@@ -7,7 +9,7 @@ fun main(args: Array<String>) {
         jogo = JogoDaForca(dicionario_com_palavras)
     } catch (e: Exception) {
         println(e.message)
-        System.exit(0)
+        exitProcess(0)
     }
 
     jogo!!.iniciar()

@@ -3,6 +3,7 @@ package com.example.jogodaforca
 import kotlin.random.Random
 
 class JogoDaForca(nome_do_map: MutableMap<String, String>) {
+
     private var N:Int = 0                                                                           // quantidade de palavras (lido do Map)*
     private var palavras = mutableListOf<String>()                                                  // um array com as N palavras (lidas do Map)
     private var dicas = mutableListOf<String>()                                                     // um array com as N dicas (lidas do arquivo)
@@ -14,7 +15,7 @@ class JogoDaForca(nome_do_map: MutableMap<String, String>) {
     private var traco_palavra:StringBuffer = StringBuffer()                                         //guarda as letrinhas descobertas na posição certinha
     private var aux_palavra:String? = String()                                                      //guarda as letras que AINDA NÃO foram descobertas da palavra sorteada
     private var guarda_letras_erradas:StringBuffer = StringBuffer()                                 //guardas letras erradas digitadas pelo usuario
-    private var letras_distintas = mutableListOf<Char>()                                     //guarda as letras distintas da palavra
+    private var letras_distintas = mutableListOf<Char>()                                            //guarda as letras distintas da palavra
 
 
     init{
@@ -33,7 +34,7 @@ class JogoDaForca(nome_do_map: MutableMap<String, String>) {
         this.palavra = this.palavras[this.indice].uppercase()
 
         for (e in 0 until this.palavra!!.length) {
-            this.traco_palavra!!.append("_")
+            this.traco_palavra.append("_")
         }
         this.aux_palavra = "${this.palavra}"
 
@@ -63,7 +64,7 @@ class JogoDaForca(nome_do_map: MutableMap<String, String>) {
             for (k in 0 until this.aux_palavra!!.length) {
                 if (letra == this.aux_palavra!!.substring(k, k + 1)) {
                     this.acertos++
-                    this.traco_palavra = this.traco_palavra!!.replace(k, k + 1, letra)
+                    this.traco_palavra = this.traco_palavra.replace(k, k + 1, letra)
                 }
             }
             this.aux_palavra = this.aux_palavra!!.replace(letra, "~")
