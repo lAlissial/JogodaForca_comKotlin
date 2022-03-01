@@ -4,7 +4,7 @@ import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
     var dicionario_com_palavras = mutableMapOf("OBJETO" to "é uma instância da classe", "BOLSA" to "guarda objetos pessoais","COLA" to "gruda as coisas","SALA" to "local para ver TV")
-    var jogo: JogoDaForca? = null
+    var jogo: JogoDaForca?
     try {
         jogo = JogoDaForca(dicionario_com_palavras)
     } catch (e: Exception) {
@@ -12,11 +12,11 @@ fun main(args: Array<String>) {
         exitProcess(0)
     }
 
-    jogo!!.iniciar()
+    jogo.iniciar()
     var letra: String
-    println("==================================")
-    println("           JOGO DA FORCA          ")
-    println("==================================")
+    println("=====================================")
+    println("             JOGO DA FORCA           ")
+    println("=====================================")
     do {
         println("\nPalavra = ${jogo.getPalavra()}")
         println("Quantidade de letras = ${jogo.getPalavra().length}")
@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
     } while (!jogo.terminou())
     println("\nPalavra = ${jogo.getPalavra()}")
 
-    println("----------------------------------")
+    println("-------------------------------------")
     println("Resultado final = " + jogo.getResultado())
-    println("==================================")
+    println("=====================================")
 }
